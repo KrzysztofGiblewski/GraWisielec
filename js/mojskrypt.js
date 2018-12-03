@@ -1,69 +1,43 @@
-var bazaSlow["zamek", "drzwi", "stolik", "rekin", "budynek",
-    "komputer", "drzewo", "czajnik", "samolot", "miska", "kurczak",
-    "filmy", "herbata", "ogień", "niebo", "okulary",
-    "jogurt", "jabłko", "cukier", "czosnek"];
-var ileLiter;
-var wylosowaneSlowo;
-var pusteSlowo;
-var zycia(9);
-var pobraneDane();
+        var zycia(9);
+        var pobraneDane();
+        var ileLiter;
+        var pusteSlowo;
+        var wylosowaneSlowo;
 
-function losuj() {
-    var wylosowanyIndex = Math.floor(Math.random() * bazaSlow.length);
-    wylosowaneSlowo = bazaSlow[wylosowanyIndex];
-    wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
+        function losuj(wylosowaneSlowo; pusteSlowo) {
+            var bazaSlow["zamek", "drzwi", "stolik", "rekin", "budynek",
+                "komputer", "drzewo", "czajnik", "samolot", "miska", "kurczak",
+                "filmy", "herbata", "ogień", "niebo", "okulary",
+                "jogurt", "jabłko", "cukier", "czosnek"];
 
-    for (var i = 0, i < wylosowaneSlowo.length; i++) {
-        pusteSlowo.push("_");
-
-    }
-    document.getElementById("pusteSlowo").innerText = wylosowaneSlowo;
-}
+            
 
 
-function sprawdz() {
+            var wylosowanyIndex = Math.floor(Math.random() * bazaSlow.length);
+            wylosowaneSlowo = bazaSlow[wylosowanyIndex];
+            wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
 
-}
+            for (var i = 0, i < wylosowaneSlowo.length; i++) {
+                pusteSlowo.push("_");
 
-var odkryjLitery = function (ukryteSlowo, wylosowaneSlowo, litera) {
-    for (var i = 0; i < wylosowaneSlowo.length; i++) {
-        if (litera == wylosowaneSlowo[i]) {
-            ukryteSlowo[i] = litera;
+            }
+            document.getElementById("pusteSlowo").innerText = wylosowaneSlowo;
         }
-    }
-
-    return ukryteSlowo;
-}
 
 
+        function sprawdz() {
 
-var pobraneDane = document.getElementById("literaLubSlowo").value;
-
-
-for (var i = 0; ileLiter > i; i++) {
-    pusteSlowo[i] = wylosowaneSlowo[i];
-    document.getElementById("pusteSlowo").innerHTML = pusteSlowo;
-}
-
-
-
-do {
-    var litera = prompt("Podaj literę lub słowo");
-    litera = litera.toUpperCase();
-
-    if (litera === wylosowaneSlowo) {
-        document.getElementById("wisielec").innerText = wylosowaneSlowo;
-        break;
-    }
-
-    if (wylosowaneSlowo.indexOf(litera) < 0) {
-        alert("No nie bardzo :P");
-        continue;
-    }
-
-    ukryteSlowo = odkryjLitery(ukryteSlowo, wylosowaneSlowo, litera);
-    document.getElementById("wisielec").innerText = ukryteSlowo.join(" ");
-
-} while (ukryteSlowo.join("") != wylosowaneSlowo);
-
-alert("Super duper chruper - wygrałeś!!!");
+            var pobraneDane = document.getElementById("literaLubSlowo").value;
+            pobraneDane = pobraneDane.toUpperCase();
+            for (var i = 0; i < pobraneDane.length; i++) {
+                for (var i = 0; i < wylosowaneSlowo.length; i++) {
+                    if (pobraneDane[i] == wylosowaneSlowo[i]) {
+                        pusteSlowo[i] = pobraneDane[i];
+                    }
+                }
+            }
+            return pusteSlowo;
+            document.getElementById("pusteSlowo").innerHTML = pusteSlowo;
+            if (wylosowaneSlowo==pusteSlowo)
+                do.getElementById("komentarz").innerText = "WYGRAŁEŚ"
+        }
