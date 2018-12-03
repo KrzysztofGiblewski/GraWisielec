@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Wisielec</title>
+    <meta name="description" content="Gra w wisielca">
+    <meta name="keywords" content="gra wisielec zgadnij słowo">
+    <meta name="author" content="Krzysztof Giblewski">
+    <!--    <script src="/js/mojskrypt.js"></script>-->
+    <link rel="stylesheet" href="arkusz.css">
+
+</head>
+
+<body>
+
+    <div id="contener">
+        <div id="szubienica">
+
+        </div>
+        <div id="gra">
+            <p id="pusteSlowo">- -</p>
+            <input name="literaLubSlowo">wpisz literę lub słowo
+            <button onclick=losuj()>Nowa gra</button>
+            <button onclick=sprawdz()>sprawdz</button>
+            <p id="komentarz">.</p>
+
+        </div>
+
+    </div>
+
+    <script>
+        var zycia(9);
+        var pobraneDane();
+        var ileLiter;
+        var pusteSlowo;
+        var wylosowaneSlowo;
+
+        function losuj(wylosowaneSlowo; pusteSlowo) {
+            var bazaSlow["zamek", "drzwi", "stolik", "rekin", "budynek",
+                "komputer", "drzewo", "czajnik", "samolot", "miska", "kurczak",
+                "filmy", "herbata", "ogień", "niebo", "okulary",
+                "jogurt", "jabłko", "cukier", "czosnek"];
+
+            
+
+
+            var wylosowanyIndex = Math.floor(Math.random() * bazaSlow.length);
+            wylosowaneSlowo = bazaSlow[wylosowanyIndex];
+            wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
+
+            for (var i = 0, i < wylosowaneSlowo.length; i++) {
+                pusteSlowo.push("_");
+
+            }
+            document.getElementById("pusteSlowo").innerText = wylosowaneSlowo;
+        }
+
+
+        function sprawdz() {
+
+            var pobraneDane = document.getElementById("literaLubSlowo").value;
+            pobraneDane = pobraneDane.toUpperCase();
+            for (var i = 0; i < pobraneDane.length; i++) {
+                for (var i = 0; i < wylosowaneSlowo.length; i++) {
+                    if (pobraneDane[i] == wylosowaneSlowo[i]) {
+                        pusteSlowo[i] = pobraneDane[i];
+                    }
+                }
+            }
+            return pusteSlowo;
+            document.getElementById("pusteSlowo").innerHTML = pusteSlowo;
+            if (wylosowaneSlowo==pusteSlowo)
+                do.getElementById("komentarz").innerText = "WYGRAŁEŚ"
+        }
+
+
+
+      
+
+    </script>
+
+</body>
+
+</html>
