@@ -1,16 +1,19 @@
-        var zycia(9);
+        var zycia();
         var pobraneDane();
         var ileLiter;
         var pusteSlowo;
         var wylosowaneSlowo;
 
-        function losuj(wylosowaneSlowo; pusteSlowo) {
+        alert('NOWA GRA!');
+
+
+        function losuj(wylosowaneSlowo; pusteSlowo, bazaSlow) {
             var bazaSlow["zamek", "drzwi", "stolik", "rekin", "budynek",
                 "komputer", "drzewo", "czajnik", "samolot", "miska", "kurczak",
                 "filmy", "herbata", "ogień", "niebo", "okulary",
                 "jogurt", "jabłko", "cukier", "czosnek"];
 
-            
+
 
 
             var wylosowanyIndex = Math.floor(Math.random() * bazaSlow.length);
@@ -38,6 +41,6 @@
             }
             return pusteSlowo;
             document.getElementById("pusteSlowo").innerHTML = pusteSlowo;
-            if (wylosowaneSlowo==pusteSlowo)
+            if (wylosowaneSlowo == pusteSlowo)
                 do.getElementById("komentarz").innerText = "WYGRAŁEŚ"
         }
