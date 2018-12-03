@@ -1,5 +1,5 @@
-        var zycia();
-        var pobraneDane();
+        var zycia;
+        var pobraneDane;
         var ileLiter;
         var pusteSlowo;
         var wylosowaneSlowo;
