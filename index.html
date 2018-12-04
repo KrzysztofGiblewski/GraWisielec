@@ -8,12 +8,45 @@
     <meta name="description" content="Gra w wisielca">
     <meta name="keywords" content="gra wisielec zgadnij słowo">
     <meta name="author" content="Krzysztof Giblewski">
-    <script src="js/mojskrypt.js"></script>
-    <link rel="stylesheet" href="arkusz.css">
+    <!--    <script type="text/javascript" src="js/mojskrypt.js"></script>-->
+    <!--    <link rel="stylesheet" href="arkusz.css">-->
 
 </head>
 
 <body>
+    <script>
+        function wowow() {
+            alert("WOWOWOWWWW!");
+        }
+
+        var zycia;
+        var pobraneDane;
+        var ileLiter;
+        var pusteSlowo;
+        var wylosowaneSlowo;
+        
+        //wylosowaneSlowo; pusteSlowo, bazaSlow
+
+        function losuj(wylosowaneSlowo, pusteSlowo, bazaSlow, wylosowanyIndex) {
+            
+            alert('NOWA GRA!');
+       
+ var bazaSlow=["zamek", "drzwi", "stolik", "rekin", "buda","ostatnie"];
+            
+
+
+            var wylosowanyIndex = Math.floor(Math.random() * bazaSlow.length);
+            wylosowaneSlowo = bazaSlow[wylosowanyIndex];
+            wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
+
+            for (var i = 0; wylosowaneSlowo.length > i; i++) {
+              var pusteSlowo=pusteSlowo+"-";
+
+            }
+            document.getElementById("pusteSlowo").innerText = wylosowaneSlowo;
+        }
+
+    </script>
 
     <div id="contener">
         <div id="szubienica">
@@ -22,13 +55,15 @@
         <div id="gra">
             <p id="pusteSlowo">- -</p>
             <input name="literaLubSlowo">wpisz literę lub słowo
-            <button onclick=losuj()>Nowa gra</button>
-            <button onclick=sprawdz()>sprawdz</button>
-            <p onclick="losuj()" id="komentarz">.</p>
+            <button id="nowa" onclick="losuj();">Nowa gra</button>
+            <button onclick=sprawdz();>sprawdz</button>
+            <p onclick="wowow();" id="komentarz">............</p>
 
         </div>
 
     </div>
+
+    <!--
 
     <script>
         var zycia();
@@ -78,6 +113,7 @@
         }
 
     </script>
+-->
 
 </body>
 

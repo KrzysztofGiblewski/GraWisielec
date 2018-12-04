@@ -1,26 +1,26 @@
+   
+function wowow(){
+     alert("WOWOWOWWWW!");
+}
         var zycia;
         var pobraneDane;
         var ileLiter;
         var pusteSlowo;
         var wylosowaneSlowo;
+        var bazaSlow;
+        //wylosowaneSlowo; pusteSlowo, bazaSlow
 
-        alert('NOWA GRA!');
+        function losuj(wylosowaneSlowo, pusteSlowo, bazaSlow, wylosowanyIndex) {
+            bazaSlow["zamek", "drzwi", "stolik", "rekin", "budynek"];
 
-
-        function losuj(wylosowaneSlowo; pusteSlowo, bazaSlow) {
-            var bazaSlow["zamek", "drzwi", "stolik", "rekin", "budynek",
-                "komputer", "drzewo", "czajnik", "samolot", "miska", "kurczak",
-                "filmy", "herbata", "ogień", "niebo", "okulary",
-                "jogurt", "jabłko", "cukier", "czosnek"];
-
-
+            alert('NOWA GRA!');
 
 
             var wylosowanyIndex = Math.floor(Math.random() * bazaSlow.length);
             wylosowaneSlowo = bazaSlow[wylosowanyIndex];
             wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
 
-            for (var i = 0, i < wylosowaneSlowo.length; i++) {
+            for (var i = 0;  wylosowaneSlowo.length>i; i++) {
                 pusteSlowo.push("_");
 
             }
@@ -30,7 +30,9 @@
 
         function sprawdz() {
 
-            var pobraneDane = document.getElementById("literaLubSlowo").value;
+            var a = document.forms['formularz'].elements['a'].value;
+
+            var pobraneDane = document.getElementsByName("input").value;
             pobraneDane = pobraneDane.toUpperCase();
             for (var i = 0; i < pobraneDane.length; i++) {
                 for (var i = 0; i < wylosowaneSlowo.length; i++) {
@@ -41,6 +43,7 @@
             }
             return pusteSlowo;
             document.getElementById("pusteSlowo").innerHTML = pusteSlowo;
-            if (wylosowaneSlowo == pusteSlowo)
-                do.getElementById("komentarz").innerText = "WYGRAŁEŚ"
+            if (wylosowaneSlowo == pusteSlowo){
+                do.getElementById("#komentarz").innerText = "WYGRAŁEŚ";
+            }
         }
