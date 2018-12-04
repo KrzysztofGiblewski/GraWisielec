@@ -46,9 +46,10 @@
                 document.getElementById("pusteSlowo").innerText = pusteSlowo;
         }
 function sprawdz(){
-    var pobraneDane = document.getElementsByClassName("LitLubSlo").innerText;
-    document.getElementsByClassName("paragraf").innerText =pobraneDane;
-    if (pobraneDane.length>1){
+    var pobraneDane = document.getElementsByName("literaLubSlowo").innerText;
+document.getElementById("paragraf").innerText = pobraneDane;
+    pobraneDane.toUpperCase();
+    if (pobraneDane.length>=1){
         if (pobraneDane==wylosowaneSlowo)
             alert("GRATULACJE");
         else{
@@ -69,7 +70,7 @@ function sprawdz(){
             <input class="LitLubSlo" name="literaLubSlowo">wpisz literę lub słowo
             <button id="nowa" onclick="losuj();">Nowa gra</button>
             <button onclick="sprawdz();">sprawdz</button>
-            <p class="paragraf" onclick="wowow();" >............</p>
+            <p id="paragraf" onclick="wowow();" >............</p>
 
         </div>
 
