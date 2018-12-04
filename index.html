@@ -34,16 +34,16 @@
  var bazaSlow=["zamek", "drzwi", "stolik", "rekin", "buda","ostatnie"];
             
 
-
+var pusteSlowo ="";
             var wylosowanyIndex = Math.floor(Math.random() * bazaSlow.length);
             wylosowaneSlowo = bazaSlow[wylosowanyIndex];
             wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
 
             for (var i = 0; wylosowaneSlowo.length > i; i++) {
-              var pusteSlowo=pusteSlowo+"-";
+              pusteSlowo=pusteSlowo+"-";
 
             }
-            document.getElementById("pusteSlowo").innerText = wylosowaneSlowo;
+            document.getElementById("pusteSlowo").innerText = pusteSlowo;
         }
 
     </script>
