@@ -27,24 +27,36 @@
         
         //wylosowaneSlowo; pusteSlowo, bazaSlow
 
-        function losuj(wylosowaneSlowo, pusteSlowo, bazaSlow, wylosowanyIndex) {
+ function losuj(wylosowaneSlowo, pusteSlowo, bazaSlow, wylosowanyIndex) {
             
             alert('NOWA GRA!');
        
- var bazaSlow=["zamek", "drzwi", "stolik", "rekin", "buda","ostatnie"];
+ var bazaSlow=["zamek","kot"];
             
 
-var pusteSlowo ="";
+ var pusteSlowo ="";
             var wylosowanyIndex = Math.floor(Math.random() * bazaSlow.length);
-            wylosowaneSlowo = bazaSlow[wylosowanyIndex];
-            wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
+                wylosowaneSlowo = bazaSlow[wylosowanyIndex];
+                wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
 
             for (var i = 0; wylosowaneSlowo.length > i; i++) {
-              pusteSlowo=pusteSlowo+"-";
+                pusteSlowo=pusteSlowo+"-";
 
             }
-            document.getElementById("pusteSlowo").innerText = pusteSlowo;
+                document.getElementById("pusteSlowo").innerText = pusteSlowo;
         }
+function sprawdz(){
+    var pobraneDane = document.getElementsByClassName("LitLubSlo").innerText;
+    document.getElementsByClassName("paragraf").innerText =pobraneDane;
+    if (pobraneDane.length>1){
+        if (pobraneDane==wylosowaneSlowo)
+            alert("GRATULACJE");
+        else{
+            alert("Nie trafiłeś");
+            zycia--;
+        }
+    }
+}
 
     </script>
 
@@ -54,10 +66,10 @@ var pusteSlowo ="";
         </div>
         <div id="gra">
             <p id="pusteSlowo">- -</p>
-            <input name="literaLubSlowo">wpisz literę lub słowo
+            <input class="LitLubSlo" name="literaLubSlowo">wpisz literę lub słowo
             <button id="nowa" onclick="losuj();">Nowa gra</button>
-            <button onclick=sprawdz();>sprawdz</button>
-            <p onclick="wowow();" id="komentarz">............</p>
+            <button onclick="sprawdz();">sprawdz</button>
+            <p class="paragraf" onclick="wowow();" >............</p>
 
         </div>
 
