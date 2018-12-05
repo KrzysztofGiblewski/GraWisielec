@@ -15,49 +15,49 @@
 
 <body>
     <script>
-        function wowow() {
-            alert("WOWOWOWWWW!");
-        }
-
         var zycia;
         var pobraneDane;
         var ileLiter;
         var pusteSlowo;
         var wylosowaneSlowo;
-        
-        //wylosowaneSlowo; pusteSlowo, bazaSlow
 
- function losuj(wylosowaneSlowo, pusteSlowo, bazaSlow, wylosowanyIndex) {
-            
+//wylosowaneSlowo, pusteSlowo, bazaSlow, wylosowanyIndex
+
+        function losuj() {
+
             alert('NOWA GRA!');
-       
- var bazaSlow=["zamek","kot"];
-            
 
- var pusteSlowo ="";
+            var bazaSlow = ["zamek", "kot"];
+
+
+            var pusteSlowo = "";
             var wylosowanyIndex = Math.floor(Math.random() * bazaSlow.length);
-                wylosowaneSlowo = bazaSlow[wylosowanyIndex];
-                wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
+            wylosowaneSlowo = bazaSlow[wylosowanyIndex];
+            wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
 
             for (var i = 0; wylosowaneSlowo.length > i; i++) {
-                pusteSlowo=pusteSlowo+"-";
+                pusteSlowo = pusteSlowo + "-";
 
             }
-                document.getElementById("pusteSlowo").innerText = pusteSlowo;
+            document.getElementById("pusteSlowo").innerText = pusteSlowo;
         }
-function sprawdz(){
-    var pobraneDane = document.getElementsByName("literaLubSlowo").innerText;
-document.getElementById("paragraf").innerText = pobraneDane;
-    pobraneDane.toUpperCase();
-    if (pobraneDane.length>=1){
-        if (pobraneDane==wylosowaneSlowo)
-            alert("GRATULACJE");
-        else{
-            alert("Nie trafiłeś");
-            zycia--;
+
+        function sprawdz() {
+            var pobraneDane = document.getElementById("LitLubSlo").value;
+            pobraneDane = pobraneDane.toUpperCase();
+            document.getElementById("paragraf").innerText = pobraneDane;
+            document.getElementById("paragraf2").innerText = wylosowaneSlowo;
+
+
+            if (pobraneDane.length > 1) {
+                if (pobraneDane == wylosowaneSlowo)
+                    alert("GRATULACJE");
+                else {
+                    alert("Nie trafiłeś");
+                    zycia--;
+                }
+            }
         }
-    }
-}
 
     </script>
 
@@ -67,10 +67,11 @@ document.getElementById("paragraf").innerText = pobraneDane;
         </div>
         <div id="gra">
             <p id="pusteSlowo">- -</p>
-            <input class="LitLubSlo" name="literaLubSlowo">wpisz literę lub słowo
+            <input id="LitLubSlo" name="literaLubSlowo" value="literka lub słowo">wpisz literę lub słowo
             <button id="nowa" onclick="losuj();">Nowa gra</button>
             <button onclick="sprawdz();">sprawdz</button>
-            <p id="paragraf" onclick="wowow();" >............</p>
+            <p id="paragraf" onclick="wowow();">............</p>
+            <p id="paragraf2">._____.</p>
 
         </div>
 
