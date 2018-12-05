@@ -24,7 +24,7 @@
 
             alert('NOWA GRA!');
 
-            var bazaSlow = ["zamek", "kot"];
+            var bazaSlow = ["zamek", "oko", "mama"];
 
             zycia = 9;
             pusteSlowo = [];
@@ -41,9 +41,10 @@
         function sprawdz() {
             pobraneDane = document.getElementById("LitLubSlo").value;
             pobraneDane = pobraneDane.toUpperCase();
-            pusteSlowo=pusteSlowo.toLocaleUpperCase();
+            pusteSlowo = document.getElementById("pusteSlowo").innerText;
+            pusteSlowo = pusteSlowo.toLocaleUpperCase();
             document.getElementById("paragraf").innerText = pobraneDane;
-            document.getElementById("paragraf2").innerText = "słowo składa się z " +pusteSlowo.length +" liter";
+            document.getElementById("paragraf2").innerText = "słowo składa się z " + pusteSlowo.length + " liter";
 
 
             if (pobraneDane.length > 1) {
@@ -51,27 +52,32 @@
                     document.getElementById("pusteSlowo").innerText = wylosowaneSlowo;
 
                     alert("GRATULACJE");
-                  
+
 
                 } else {
                     zycia--;
                     alert("Nie trafiłeś pozostało ci " + zycia + " prób");
 
-                }  
-            }  if (pobraneDane.length<2){
-                for (i = 0; wylosowaneSlowo.length > i; i++) {
-                    if (wylosowaneSlowo[i] == pobraneDane){
-                        pusteSlowo[i] = pobraneDane;
-                        alert("jedna dobra literka na pozycji "+(i+1));
-                    }
-                        
-                    else
-                        pusteSlowo[i] = "-";
                 }
-                document.getElementById("pusteSlowo").innerText = pusteSlowo;
+            }
+            if (pobraneDane.length < 2) {
+                for (i = 0; wylosowaneSlowo.length > i; i++) {
+                    if (wylosowaneSlowo[i] == pobraneDane) {
+                        pusteSlowo[i] = pobraneDane;
+                        document.getElementById("pusteSlowo").innerText = pusteSlowo[i];
+                        alert("jedna dobra literka na pozycji " + (i + 1));
+                    } else{
+                         pusteSlowo[i] = "-";
+                    alert((i+1)+" literka nie");
+                    }
+                       
+
+
+                }
 
             }
 
+                document.getElementById("pusteSlowo").innerText = pusteSlowo;
 
         }
 
