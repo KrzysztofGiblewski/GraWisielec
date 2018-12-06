@@ -33,7 +33,7 @@
             wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
 
             for (var i = 0; wylosowaneSlowo.length > i; i++) {
-                pusteSlowo = pusteSlowo + ".";
+                pusteSlowo = pusteSlowo + " - ";
             }
             document.getElementById("pusteSlowo").innerText = pusteSlowo;
         }
@@ -41,8 +41,7 @@
         function sprawdz() {
             pobraneDane = document.getElementById("LitLubSlo").value;
             pobraneDane = pobraneDane.toUpperCase();
-            pusteSlowo = document.getElementById("pusteSlowo").innerText;
-            pusteSlowo = pusteSlowo.toLocaleUpperCase();
+  
             document.getElementById("paragraf").innerText = pobraneDane;
             document.getElementById("paragraf2").innerText = "słowo składa się z " + pusteSlowo.length + " liter";
 
@@ -61,23 +60,23 @@
                 }
             }
             if (pobraneDane.length < 2) {
+
                 for (i = 0; wylosowaneSlowo.length > i; i++) {
                     if (wylosowaneSlowo[i] == pobraneDane) {
-                        pusteSlowo[i] = pobraneDane;
-                        document.getElementById("pusteSlowo").innerText = pusteSlowo[i];
-                        alert("jedna dobra literka na pozycji " + (i + 1));
-                    } else{
-                         pusteSlowo[i] = "-";
-                    alert((i+1)+" literka nie");
+                        pusteSlowo =  pusteSlowo[(i-1)]+pobraneDane;
+                        document.getElementById("pusteSlowo").innerText = "Trafiłeś " pobraneDane +" znajduje się w szukanym słowie" ;
+                    } else {
+                        pusteSlowo = pusteSlowo[(i-1)] + " - ";
+
                     }
-                       
+
 
 
                 }
 
             }
 
-                document.getElementById("pusteSlowo").innerText = pusteSlowo;
+            document.getElementById("pusteSlowo").innerText = pusteSlowo;
 
         }
 
