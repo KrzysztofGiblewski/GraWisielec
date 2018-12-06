@@ -33,17 +33,22 @@
             wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
 
             for (var i = 0; wylosowaneSlowo.length > i; i++) {
-                pusteSlowo = pusteSlowo + " - ";
+                pusteSlowo = pusteSlowo + "-";
+
             }
+            document.getElementById("paragraf2").innerText = "słowo składa się z " + pusteSlowo.length + " liter";
+
             document.getElementById("pusteSlowo").innerText = pusteSlowo;
         }
 
         function sprawdz() {
+            var trafiona = false;
+
             pobraneDane = document.getElementById("LitLubSlo").value;
             pobraneDane = pobraneDane.toUpperCase();
-  
+
             document.getElementById("paragraf").innerText = pobraneDane;
-            document.getElementById("paragraf2").innerText = "słowo składa się z " + pusteSlowo.length + " liter";
+            document.getElementById("paragraf2").innerText = "słowo składa się z " + wylosowaneSlowo.length + " liter";
 
 
             if (pobraneDane.length > 1) {
@@ -54,19 +59,20 @@
 
 
                 } else {
-                    zycia--;
-                    alert("Nie trafiłeś pozostało ci " + zycia + " prób");
+                    trafiona = false;
 
                 }
             }
             if (pobraneDane.length < 2) {
-
-                for (i = 0; wylosowaneSlowo.length > i; i++) {
+                pusteSlowo = document.getElementById("pusteSlowo").innerText;
+                for (i = 0; wylosowaneSlowo.length > i + 1; i++) {
                     if (wylosowaneSlowo[i] == pobraneDane) {
-                        pusteSlowo =  pusteSlowo[(i-1)]+pobraneDane;
-                        document.getElementById("pusteSlowo").innerText = "Trafiłeś " pobraneDane +" znajduje się w szukanym słowie" ;
+                       pusteSlowo[i] = pobraneDane;
+                        document.getElementById("paragraf").innerText = "Trafiłeś "+
+                        pobraneDane + " znajduje się w szukanym słowie";
+                        trafiona = true;
                     } else {
-                        pusteSlowo = pusteSlowo[(i-1)] + " - ";
+                        pusteSlowo[i] ="-";
 
                     }
 
@@ -74,6 +80,11 @@
 
                 }
 
+            }
+            if (trafiona == false) {
+                zycia--;
+                document.getElementById("paragraf").innerText = "NIE trafiłeś "+
+                        pobraneDane + "  NIE znajduje się w szukanym słowie pozostało ci " +zycia+ " podejść";
             }
 
             document.getElementById("pusteSlowo").innerText = pusteSlowo;
