@@ -16,9 +16,8 @@
 <body>
     <script>
         var zycia;
-        var pobraneDane;
-        var pusteSlowo;
         var wylosowaneSlowo;
+        var pusteSlowo = [""];
 
         function losuj() {
 
@@ -26,36 +25,41 @@
 
             var bazaSlow = ["zamek", "oko", "mama"];
 
+            //           "zamek", "drzwi", "stolik", "rekin", "budynek",
+            //                "komputer", "drzewo", "czajnik", "samolot", "miska", "kurczak",
+            //                "filmy", "herbata", "ogień", "niebo", "okulary",
+            //                "jogurt", "jabłko", "cukier", "czosnek"
+
+
             zycia = 9;
-            pusteSlowo = [];
             var wylosowanyIndex = Math.floor(Math.random() * bazaSlow.length);
             wylosowaneSlowo = bazaSlow[wylosowanyIndex];
             wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
 
             for (var i = 0; wylosowaneSlowo.length > i; i++) {
-                pusteSlowo = pusteSlowo + "-";
+                pusteSlowo[i] = "*";
 
             }
             document.getElementById("paragraf2").innerText = "słowo składa się z " + pusteSlowo.length + " liter";
 
-            document.getElementById("pusteSlowo").innerText = pusteSlowo;
+                        document.getElementById("pusteSlowoText").innerText = pusteSlowo;
         }
 
         function sprawdz() {
             var trafiona = false;
+            var pobraneDane;
+
 
             pobraneDane = document.getElementById("LitLubSlo").value;
             pobraneDane = pobraneDane.toUpperCase();
-
-            document.getElementById("paragraf").innerText = pobraneDane;
-            document.getElementById("paragraf2").innerText = "słowo składa się z " + wylosowaneSlowo.length + " liter";
-
+            document.getElementById("pusteSlowoText").innerText = pusteSlowo;
 
             if (pobraneDane.length > 1) {
                 if (pobraneDane == wylosowaneSlowo) {
-                    document.getElementById("pusteSlowo").innerText = wylosowaneSlowo;
+                    document.getElementById("pusteSlowoText").innerText = wylosowaneSlowo;
 
                     alert("GRATULACJE");
+                    trafiona = true;
 
 
                 } else {
@@ -63,16 +67,17 @@
 
                 }
             }
-            if (pobraneDane.length < 2) {
-                pusteSlowo = document.getElementById("pusteSlowo").innerText;
-                for (i = 0; wylosowaneSlowo.length > i + 1; i++) {
+            if (pobraneDane.length = 1) {
+                for (i = 0; wylosowaneSlowo.length > i; i++) {
                     if (wylosowaneSlowo[i] == pobraneDane) {
-                       pusteSlowo[i] = pobraneDane;
-                        document.getElementById("paragraf").innerText = "Trafiłeś "+
-                        pobraneDane + " znajduje się w szukanym słowie";
+                        pusteSlowo[i] = pobraneDane;
+
+                        document.getElementById("paragraf").innerText = "Trafiłeś " +
+                            pobraneDane + " znajduje się w szukanym słowie";
                         trafiona = true;
+
                     } else {
-                        pusteSlowo[i] ="-";
+                        pusteSlowo[i] = pusteSlowo[i];
 
                     }
 
@@ -81,13 +86,13 @@
                 }
 
             }
+            document.getElementById("pusteSlowoText").innerText = pusteSlowo;
+
             if (trafiona == false) {
                 zycia--;
-                document.getElementById("paragraf").innerText = "NIE trafiłeś "+
-                        pobraneDane + "  NIE znajduje się w szukanym słowie pozostało ci " +zycia+ " podejść";
+                document.getElementById("paragraf").innerText = "NIE trafiłeś " +
+                    pobraneDane + "  nie znajduje się w szukanym słowie pozostało ci " + zycia + " podejść";
             }
-
-            document.getElementById("pusteSlowo").innerText = pusteSlowo;
 
         }
 
@@ -98,25 +103,17 @@
 
         </div>
         <div id="gra">
-            <p id="pusteSlowo">- -</p>
-            <input id="LitLubSlo" name="literaLubSlowo" value="literka lub słowo">wpisz literę lub słowo
+            <p id="pusteSlowoText">-</p>
+            <input id="LitLubSlo" name="literaLubSlowo" value="wpisz_literę_lub_słowo">
             <button id="nowa" onclick="losuj();">Nowa gra</button>
             <button onclick="sprawdz();">sprawdz</button>
-            <p id="paragraf" onclick="wowow();">............</p>
-            <p id="paragraf2">._____.</p>
+            <p id="paragraf" onclick="wowow();">..</p>
+            <p id="paragraf2">.__.</p>
 
         </div>
 
     </div>
 
-    <!--
-
-           "zamek", "drzwi", "stolik", "rekin", "budynek",
-                "komputer", "drzewo", "czajnik", "samolot", "miska", "kurczak",
-                "filmy", "herbata", "ogień", "niebo", "okulary",
-                "jogurt", "jabłko", "cukier", "czosnek"
-
--->
 
 </body>
 
