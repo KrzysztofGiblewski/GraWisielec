@@ -18,11 +18,13 @@
         var zycia;
         var wylosowaneSlowo;
         var pusteSlowo = [""];
+        var pomocnicze = "";
 
-        function losuj() {
+        function losuj() 
+        {
 
             alert('NOWA GRA!');
-            pusteSlowo=[""];
+            pusteSlowo = [""];
 
             var bazaSlow = ["zamek", "oko", "mama"];
 
@@ -37,48 +39,55 @@
             wylosowaneSlowo = bazaSlow[wylosowanyIndex];
             wylosowaneSlowo = wylosowaneSlowo.toUpperCase();
 
-            for (var i = 0; wylosowaneSlowo.length > i; i++) {
-                pusteSlowo[i] = "~";
+            for (var i = 0; wylosowaneSlowo.length > i; i++) 
+            {
+                pusteSlowo[i] = "-";
 
             }
             document.getElementById("paragraf2").innerText = "słowo składa się z " + pusteSlowo.length + " liter";
+            document.getElementById("pusteSlowoText").innerText = pusteSlowo.join("");
+            document.getElementById("paragraf3").innerText = pusteSlowo;
 
-                        document.getElementById("pusteSlowoText").innerText = pusteSlowo;
-        }
+           
+            }
+       
 
         function sprawdz() {
-            var trafiona = false;
+
             var pobraneDane;
+            var traf = false;
 
 
             pobraneDane = document.getElementById("LitLubSlo").value;
             pobraneDane = pobraneDane.toUpperCase();
-            document.getElementById("pusteSlowoText").innerText = pusteSlowo;
 
-            if (pobraneDane.length > 1) {
-                if (pobraneDane == wylosowaneSlowo) {
-                    document.getElementById("pusteSlowoText").innerText = wylosowaneSlowo;
+            if (pobraneDane.length > 1) 
+            {
+                if (pobraneDane == wylosowaneSlowo) 
+                {
 
-                    alert("GRATULACJE");
-                    trafiona = true;
+                    traf = true;
+
 
 
                 } else {
-                    trafiona = false;
+                    traf = false;
 
                 }
             }
             if (pobraneDane.length = 1) {
-                for (i = 0; wylosowaneSlowo.length > i; i++) {
-                    if (wylosowaneSlowo[i] == pobraneDane) {
+                for (i = 0; wylosowaneSlowo.length > i; i++) 
+                {
+                    if (wylosowaneSlowo[i] == pobraneDane) 
+                    {
                         pusteSlowo[i] = pobraneDane;
+                        document.getElementById("paragraf").innerText = "Trafiłeś " +pobraneDane + " pasuje";
 
-                        document.getElementById("paragraf").innerText = "Trafiłeś " +
-                            pobraneDane + " znajduje się w szukanym słowie";
-                        trafiona = true;
+                        traf = true;
 
-
-                    } else {
+                    } 
+                    else 
+                    {
                         pusteSlowo[i] = pusteSlowo[i];
 
                     }
@@ -88,18 +97,25 @@
                 }
 
             }
-            document.getElementById("pusteSlowoText").innerText = pusteSlowo;
+            //            document.getElementById("pusteSlowoText").innerText = pomocnicze;
 
-            if (trafiona == false) {
+            if (traf == false) 
+            {
                 zycia--;
                 document.getElementById("paragraf").innerText = "NIE trafiłeś " +
                     pobraneDane + "  nie znajduje się w szukanym słowie pozostało ci " + zycia + " podejść";
             }
-                                    
-//         tu musze jeszce poprawić
-//                        for (i=0; pusteSlowo.length>i;i++)
-//                        if (pusteSlowo[i] == wylosowaneSlowo[i]) {
-//                        alert("GRATULACJE");}
+          
+
+              if (traf = true)
+            if (pusteSlowo.join("") == wylosowaneSlowo) 
+            {
+                document.getElementById("pusteSlowoText").innerText = wylosowaneSlowo;
+                alert("GRATULACJE");
+            }
+else
+                document.getElementById("pusteSlowoText").innerText = pusteSlowo.join("");
+                document.getElementById("paragraf3").innerText = pusteSlowo;
 
         }
 
@@ -116,6 +132,7 @@
             <button onclick="sprawdz();">sprawdz</button>
             <p id="paragraf" onclick="wowow();">..</p>
             <p id="paragraf2">.__.</p>
+            <p id="paragraf3">.__.</p>
 
         </div>
 
