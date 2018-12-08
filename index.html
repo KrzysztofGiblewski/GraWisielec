@@ -59,8 +59,9 @@
 
             if (pobraneDane.length > 1) {
                 if (pobraneDane == wylosowaneSlowo) {
-                    document.getElementById("pusteSlowoText").innerText = wylosowaneSlowo.toUpperCase;
                     alert("GRATULACJE");
+                    document.getElementById("pusteSlowoText").innerText = wylosowaneSlowo;
+
                     traf = true;
                 }
             }
@@ -69,12 +70,13 @@
                     if (wylosowaneSlowo[i] == pobraneDane) {
                         pusteSlowo[i] = pobraneDane;
                         document.getElementById("paragraf").innerText = "Trafiłeś " + pobraneDane + " pasuje";
+                        document.getElementById("pusteSlowoText").innerText = pusteSlowo.join("");
+
                         traf = true;
                     } else
                         pusteSlowo[i] = pusteSlowo[i];
 
                 }
-                document.getElementById("pusteSlowoText").innerText = pusteSlowo.join("");
                 if (pusteSlowo.join("") == wylosowaneSlowo)
                     alert("GRATULACJE");
             }
