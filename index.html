@@ -27,10 +27,10 @@
             zycia = 9;
 
             var bazaSlow = ["ziomek", "oko", "mama"
-                // ,"zamek", "drzwi", "stolik", "rekin", "budynek",
-                // "komputer", "drzewo", "czajnik", "samolot", "miska", "kurczak",
-                // "filmy", "herbata", "ogień", "niebo", "okulary",
-                //  "jogurt", "jabłko", "cukier", "czosnek"
+                 ,"zamek", "drzwi", "stolik", "rekin", "budynek",
+                 "komputer", "drzewo", "czajnik", "samolot", "miska", "kurczak",
+                 "filmy", "herbata", "ogień", "niebo", "okulary",
+                  "jogurt", "jabłko", "cukier", "czosnek"
             ];
 
 
@@ -59,7 +59,7 @@
 
             if (pobraneDane.length > 1) {
                 if (pobraneDane == wylosowaneSlowo) {
-                    alert("GRATULACJE");
+                        document.getElementById("paragraf").innerText = "BRAWO ZGADŁEŚ";
                     document.getElementById("pusteSlowoText").innerText = wylosowaneSlowo;
 
                     traf = true;
@@ -78,7 +78,7 @@
 
                 }
                 if (pusteSlowo.join("") == wylosowaneSlowo)
-                    alert("GRATULACJE");
+                        document.getElementById("paragraf").innerText = "BRAWO ZGADŁEŚ";
             }
             if (traf == false) {
                 zycia--;
@@ -100,7 +100,7 @@
         </div>
         <div id="gra">
             <p id="pusteSlowoText">--</p>
-            <input id="LitLubSlo" name="literaLubSlowo" value="wpisz_literę_lub_słowo">
+            <input id="LitLubSlo" name="literaLubSlowo" value="wpisz_literę_lub_słowo"><br>
             <button id="nowa" onclick="losuj();">Nowa gra</button>
             <button onclick="sprawdz();">sprawdz</button>
             <p id="paragraf" onclick="wowow();">..</p>
